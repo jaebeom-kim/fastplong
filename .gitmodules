@@ -1,0 +1,9 @@
+[submodule "lib/libisal"]
+	path = lib/libisal
+	url = https://github.com/jaebeom-kim/isa-l.git
+[submodule "lib/libdeflate"]
+	path = lib/libdeflate
+	url = https://github.com/ebiggers/libdeflate.git
+[submodule "lib/libhwy"]
+	path = lib/libhwy
+	url = https://github.com/google/highway.git
