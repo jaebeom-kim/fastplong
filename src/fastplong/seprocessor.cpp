@@ -355,7 +355,7 @@ void SingleEndProcessor::readerTask()
             while( mPackReadCounter - mPackProcessedCounter > PACK_IN_MEM_LIMIT){
                 //cerr<<"sleep"<<endl;
                 slept++;
-                usleep(100);
+                std::this_thread::sleep_for(std::chrono::microseconds(100));
             }
             readNum += count;
             // if the writer threads are far behind this reader, sleep and wait
@@ -363,7 +363,7 @@ void SingleEndProcessor::readerTask()
             if(readNum % (PACK_SIZE * PACK_IN_MEM_LIMIT) == 0 && mLeftWriter) {
                 while(mLeftWriter->bufferLength() > PACK_IN_MEM_LIMIT) {
                     slept++;
-                    usleep(1000);
+                    std::this_thread::sleep_for(std::chrono::microseconds(1000));
                 }
             }
             // reset count to 0
@@ -420,7 +420,7 @@ void SingleEndProcessor::processorTask(ThreadConfig* config)
                 break;
             }
         } else {
-            usleep(100);
+            std::this_thread::sleep_for(std::chrono::microseconds(100));
         }
     }
     input->setConsumerFinished();        
