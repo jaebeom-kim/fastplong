@@ -27,6 +27,7 @@ target_link_libraries(fastplong
     PRIVATE isal
     PRIVATE libdeflate_static
     PRIVATE hwy
+    PRIVATE nedmalloc
 )
 
 target_include_directories(fastplong

@@ -16,12 +16,18 @@ set(HWY_TARGETS
     CACHE STRING
     "List of Highway instruction-set targets to compile (e.g. sse4;avx2;avx512f;neon)")
 
+if (CYGWIN)
+    # default cygwin allocator (dlmalloc) locks on every allocation and destroys MT performance
+    add_subdirectory(lib/nedmalloc)
+endif()
+
 mark_as_advanced(HWY_ENABLE_RUNTIME_DISPATCH HWY_TARGETS)
 
 ### Third‐party libraries ###
 add_subdirectory(lib/libdeflate)
 add_subdirectory(lib/libisal)
 add_subdirectory(lib/libhwy)
+add_subdirectory(lib/nedmalloc)
 
 add_subdirectory(src)
  
