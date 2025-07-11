@@ -27,7 +27,6 @@ mark_as_advanced(HWY_ENABLE_RUNTIME_DISPATCH HWY_TARGETS)
 add_subdirectory(lib/libdeflate)
 add_subdirectory(lib/libisal)
 add_subdirectory(lib/libhwy)
-add_subdirectory(lib/nedmalloc)
 
 add_subdirectory(src)
  

@@ -27,8 +27,13 @@ target_link_libraries(fastplong
     PRIVATE isal
     PRIVATE libdeflate_static
     PRIVATE hwy
-    PRIVATE nedmalloc
 )
+
+if (CYGWIN)
+  target_link_libraries(fastplong 
+      PRIVATE nedmalloc
+  )
+endif()
 
 target_include_directories(fastplong
   PRIVATE 
